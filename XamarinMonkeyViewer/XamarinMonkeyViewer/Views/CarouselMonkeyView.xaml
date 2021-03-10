@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinMonkeyViewer.Views.CarouselMonkeyView" x:Name="CarouselMonkey">
+             x:Class="XamarinMonkeyViewer.Views.CarouselMonkeyView" x:Name="CarouselMonkey" Title="Carousel Sample">
     <ContentPage.Content>
         <CarouselView ItemsSource="{Binding Monkeys}" CurrentItem="{Binding CurrentMonkey}">
             <CarouselView.ItemTemplate>

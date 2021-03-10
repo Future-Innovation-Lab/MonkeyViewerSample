@@ -1,12 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinMonkeyViewer.Views.ManualMonkeyView">
+             x:Class="XamarinMonkeyViewer.Views.ManualMonkeyView" x:Name="ManualMonkey" Title="DIY Sample">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="*"/>
+                <RowDefinition Height ="50"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="{Binding CurrentMonkey.Image}" Grid.ColumnSpan="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MonkeyTappedCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Button Text="Previous Monkey" Command="{Binding PreviousMonkeyCommand}" Grid.Row="1" Grid.Column="0"/>
+            <Button Text="Next Monkey" Command="{Binding NextMonkeyCommand}" Grid.Row="1" Grid.Column="1"/>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

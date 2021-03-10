@@ -17,7 +17,7 @@ namespace XamarinMonkeyViewer
 
             Database = new MonkeyDatabase();
 
-            MainPage = new CarouselMonkeyView();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
