@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMonkeyViewer.Views.EditMonkeysView" x:Name="EditMonkeyView" Title="Edit Monkeys">
+    <ContentPage.Content>
+        <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Monkeys}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
+                                Padding="10"
+                                ColumnSpacing="10"
+                                RowSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="66"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="{Binding Image}"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="66" />
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="{Binding Name}" />
+                                <Label Text="{Binding Location}" />
+                            </StackLayout>
+                            <Button Grid.Column="2" Text="Nuke" Command="{Binding Source={x:Reference EditMonkeyView},Path=BindingContext.DeleteMonkeyCommand}" CommandParameter="{Binding .}"/>
+                        </Grid>
+                        <ViewCell.ContextActions>
+                            <MenuItem  CommandParameter="{Binding .}"
+           Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

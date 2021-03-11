@@ -6,6 +6,7 @@
     <StackLayout>
         <Button Text="Manual View Page" Command="{Binding ManualCommand}" />
         <Button Text="Carousel View Page" Command="{Binding CarouselCommand}" />
+        <Button Text="Edit Monkeys" Command="{Binding EditCommand}" />
     </StackLayout>
 
 </ContentPage>

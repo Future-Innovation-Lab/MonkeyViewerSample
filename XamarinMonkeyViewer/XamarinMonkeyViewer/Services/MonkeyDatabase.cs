@@ -129,5 +129,10 @@ namespace BankingXamarin.Services
 
             return monkeys;
         }
+
+        public void DeleteMonkey(int monkeyId)
+        {
+            _database.Delete<Monkey>(monkeyId);
+        }
     }
 }
